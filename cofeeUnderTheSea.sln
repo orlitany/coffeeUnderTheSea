@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{148F43D1-A869-AC0F-6A4F-3D6C8AD3C583}") = "cofeeUnderTheSea", "Assembly-CSharp.csproj", "{F71BF0C2-08DA-D2F6-932B-274372C570A7}"
+EndProject
+Project("{148F43D1-A869-AC0F-6A4F-3D6C8AD3C583}") = "cofeeUnderTheSea", "Assembly-CSharp-Editor.csproj", "{451221E6-12BC-CF24-5197-25A25E5E9B37}"
+EndProject
+Project("{148F43D1-A869-AC0F-6A4F-3D6C8AD3C583}") = "cofeeUnderTheSea", "Assembly-UnityScript-Editor-firstpass.unityproj", "{AA806B88-6648-11B4-0E2B-2927E68BD375}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F71BF0C2-08DA-D2F6-932B-274372C570A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71BF0C2-08DA-D2F6-932B-274372C570A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71BF0C2-08DA-D2F6-932B-274372C570A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71BF0C2-08DA-D2F6-932B-274372C570A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{451221E6-12BC-CF24-5197-25A25E5E9B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451221E6-12BC-CF24-5197-25A25E5E9B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451221E6-12BC-CF24-5197-25A25E5E9B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451221E6-12BC-CF24-5197-25A25E5E9B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA806B88-6648-11B4-0E2B-2927E68BD375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA806B88-6648-11B4-0E2B-2927E68BD375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA806B88-6648-11B4-0E2B-2927E68BD375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA806B88-6648-11B4-0E2B-2927E68BD375}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
