@@ -16,7 +16,10 @@ public class segmentPerson : MonoBehaviour {
 	OpenCvSharp.Rect bkrnd_rect;// = new OpenCvSharp.Rect (45, 45, 40, 40);
 	Mat hist = new Mat();
 	Mat frame_backproj;
-	Mat dst,thresh,contours; 
+	Mat dst,thresh,mask;
+	MatOfPoint[] contours;
+	double max_area_contour;
+	int max_area_contour_ind;
 
 	//int height;
 	//OpenCvSharp.Rect[] detRect;
@@ -39,11 +42,12 @@ public class segmentPerson : MonoBehaviour {
 		frame_backproj = new Mat ();
 		dst = new Mat ();
 		thresh = new Mat ();
-		contours = new Mat ();
+
 		tex.LoadImage (frame.ToBytes (".png", new int[]{0}));
 		go.GetComponent<Renderer> ().material.mainTexture = tex;
 		//myDetector = new CascadeClassifier ("C:/Users/admin/opencv/build/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml");
-		bkrnd_rect = new OpenCvSharp.Rect(1,1,bkrnd_win_size,bkrnd_win_size);
+		bkrnd_rect = new OpenCvSharp.Rect(1,1,bkrnd_win_size[0],bkrnd_win_size[1]);
+
 	}
 
 	// Update is called once per frame
@@ -71,25 +75,36 @@ public class segmentPerson : MonoBehaviour {
 			Mat kernel = Cv2.GetStructuringElement (MorphShapes.Ellipse, new Size (7, 7));
 			Cv2.Filter2D (frame_backproj, dst, dst.Type (), kernel);
 
-			Cv2.Threshold (dst, thresh, 30.0, 255.0, 0);
+			Cv2.Threshold (dst, thresh, 10.0, 255.0, ThresholdTypes.Binary);
 			thresh = 255 - thresh;
+			//Debug.Log (thresh.Size ().ToString ());
 
-			Cv2.MorphologyEx (tresh, tresh, MorphTypes.Open, kernel,null,3);
-			Cv2.MorphologyEx (tresh, tresh, MorphTypes.ERODE, kernel,null,1);
+			Cv2.MorphologyEx (thresh, thresh, MorphTypes.Open, kernel,null,3);
+			Cv2.MorphologyEx (thresh, thresh, MorphTypes.ERODE, kernel,null,1);
 
-			Cv2.FindContours (thresh, contours, null, RetrievalModes.List, ContourApproximationModes.ApproxSimple, new Point? (null));
+			contours = Cv2.FindContoursAsMat (thresh , RetrievalModes.List, ContourApproximationModes.ApproxSimple);
 
-			//contours
+			max_area_contour = 0;
+			max_area_contour_ind = 0;
+			for (int i = 0; i < contours.Length; i++) {
+				if (contours [i].ContourArea () > max_area_contour) {
+					max_area_contour = contours [i].ContourArea ();
+					max_area_contour_ind = i;	
+				}							
+			}		
 
-			//Mat mask = new Mat (thresh.Size (), thresh.Type ());
+			mask = new Mat (thresh.Size (), thresh.Type ());
+			//Cv2.DrawContours (mask, contours, 0, Scalar.All (255));
+			Debug.Log(max_area_contour_ind.ToString());
+			mask.DrawContours(contours, 1,Scalar.All (255));
 
 
-			//Cv2.Merge(new Mat[]{mask,mask,mask},mask);
-			//Cv2.BitwiseAnd (mask, frame, mask);
+			Cv2.Merge(new Mat[]{mask,mask,mask},mask);
+			Cv2.BitwiseAnd (mask, frame, mask);
 
 			//Cv2.Merge(new Mat[]{frame_backproj,frame_backproj,frame_backproj},frame_backproj);
 
-			tex.LoadImage (contours.ToBytes (".png", new int[]{ 0 }));
+			tex.LoadImage (mask.ToBytes (".png", new int[]{ 0 }));
 			
 		}
 
