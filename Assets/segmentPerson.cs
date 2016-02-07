@@ -93,10 +93,11 @@ public class segmentPerson : MonoBehaviour {
 				}							
 			}		
 
-			mask = new Mat (thresh.Size (), thresh.Type ());
+			mask = new Mat (thresh.Size (), thresh.Type (), Scalar.All (0));
 			//Cv2.DrawContours (mask, contours, 0, Scalar.All (255));
-			Debug.Log(max_area_contour_ind.ToString());
-			mask.DrawContours(contours, 1,Scalar.All (255));
+			//Debug.Log(max_area_contour_ind.ToString());
+			//mask.DrawContours(contours, 1,Scalar.All (255));
+
 
 
 			Cv2.Merge(new Mat[]{mask,mask,mask},mask);
@@ -104,7 +105,7 @@ public class segmentPerson : MonoBehaviour {
 
 			//Cv2.Merge(new Mat[]{frame_backproj,frame_backproj,frame_backproj},frame_backproj);
 
-			tex.LoadImage (mask.ToBytes (".png", new int[]{ 0 }));
+			tex.LoadImage (frame.ToBytes (".png", new int[]{ 0 }));
 			
 		}
 

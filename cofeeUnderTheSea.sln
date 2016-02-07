@@ -5,6 +5,8 @@ Project("{148F43D1-A869-AC0F-6A4F-3D6C8AD3C583}") = "cofeeUnderTheSea", "Assembl
 EndProject
 Project("{148F43D1-A869-AC0F-6A4F-3D6C8AD3C583}") = "cofeeUnderTheSea", "Assembly-CSharp-Editor.csproj", "{451221E6-12BC-CF24-5197-25A25E5E9B37}"
 EndProject
+Project("{148F43D1-A869-AC0F-6A4F-3D6C8AD3C583}") = "cofeeUnderTheSea", "Assembly-UnityScript.unityproj", "{52BAA015-65D5-5877-3D4E-3929B4E5B3A1}"
+EndProject
 Project("{148F43D1-A869-AC0F-6A4F-3D6C8AD3C583}") = "cofeeUnderTheSea", "Assembly-UnityScript-Editor-firstpass.unityproj", "{AA806B88-6648-11B4-0E2B-2927E68BD375}"
 EndProject
 Global
@@ -21,6 +23,10 @@ Global
 		{451221E6-12BC-CF24-5197-25A25E5E9B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{451221E6-12BC-CF24-5197-25A25E5E9B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{451221E6-12BC-CF24-5197-25A25E5E9B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52BAA015-65D5-5877-3D4E-3929B4E5B3A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52BAA015-65D5-5877-3D4E-3929B4E5B3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52BAA015-65D5-5877-3D4E-3929B4E5B3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52BAA015-65D5-5877-3D4E-3929B4E5B3A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AA806B88-6648-11B4-0E2B-2927E68BD375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AA806B88-6648-11B4-0E2B-2927E68BD375}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA806B88-6648-11B4-0E2B-2927E68BD375}.Release|Any CPU.ActiveCfg = Release|Any CPU
